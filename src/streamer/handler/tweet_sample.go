@@ -12,6 +12,7 @@ import (
 // @Param q query string false "name search by q"
 // @Produce json
 // @Success 200 {array} handler.ResponseTweet
+// @Failure 502 "Reached the maximum amount of simultaneous connections"
 // @Tags tweets
 func HandleTweetSample(ctx *gin.Context) {
 	var query Query

@@ -16,6 +16,7 @@ import (
 // @Param q query string false "name search by q"
 // @Produce json-stream
 // @Success 200 "There is no response body for this endpoint. Event stream data: {\"tweet\": \"string\"}"
+// @Failure 502 "Reached the maximum amount of simultaneous connections"
 // @Tags tweets
 func HandleTweetStream(ctx *gin.Context) {
 	var query Query
