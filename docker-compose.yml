@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  twitter_streamer:
+    build: .
+    ports:
+      - "${PORT}:${SERVICE_PORT}"
+    environment:
+      - SERVICE_PORT=${SERVICE_PORT}
+      - MAX_CONCURRENCY=${MAX_CONCURRENCY}
+      - CONSUMER_KEY=${CONSUMER_KEY}
+      - CONSUMER_SECRET=${CONSUMER_SECRET}
+      - TOKEN=${TOKEN}
+      - TOKEN_SECRET=${TOKEN_SECRET}
+    entrypoint: /app/tweet_streamer
