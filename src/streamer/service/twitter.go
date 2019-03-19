@@ -19,20 +19,20 @@ type TwitterStreamer struct {
 func CreateTweeterStreamer() *TwitterStreamer {
 	once.Do(func() {
 		instance = &TwitterStreamer{
-			client: GetTwitterClient(),
+			client: getTwitterClient(),
 		}
 	})
 	return instance
 }
 
-func GetTwitterClient() *twitter.Client {
+func getTwitterClient() *twitter.Client {
 	config := oauth1.NewConfig(os.Getenv("CONSUMER_KEY"), os.Getenv("CONSUMER_SECRET"))
 	token := oauth1.NewToken(os.Getenv("TOKEN"), os.Getenv("TOKEN_SECRET"))
 	httpClient := config.Client(oauth1.NoContext, token)
 	return twitter.NewClient(httpClient)
 }
 
-func GetTwitterParams(q string) *twitter.StreamFilterParams {
+func getTwitterParams(q string) *twitter.StreamFilterParams {
 	params := &twitter.StreamFilterParams{
 		Track:         []string{q},
 		StallWarnings: twitter.Bool(true),
@@ -42,7 +42,7 @@ func GetTwitterParams(q string) *twitter.StreamFilterParams {
 
 // Get a stream channel of tweets based on a query string
 func (ts *TwitterStreamer) GetTweetStream(q string) (*twitter.Stream, error) {
-	params := GetTwitterParams(q)
+	params := getTwitterParams(q)
 	return ts.client.Streams.Filter(params)
 }
 

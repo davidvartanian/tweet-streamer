@@ -30,5 +30,10 @@ This microservice provides a Server Sent Event endpoint to get a live stream of 
 * GET /swagger/index.html
 * Web page with information about the microservice and endpoints
 
+## TODO
+* Create unit and functional tests (see https://github.com/h2non/gock)
+* Implement persistence of client requests
+* Add request statistics of requests and gathered data
+
 ## See
 * https://github.com/dghubble/go-twitter

@@ -15,7 +15,7 @@ require (
 	github.com/go-openapi/swag v0.18.0 // indirect
 	github.com/golang/protobuf v1.3.1 // indirect
 	github.com/google/go-querystring v1.0.0 // indirect
-	github.com/joho/godotenv v1.3.0 // indirect
+	github.com/joho/godotenv v1.3.0
 	github.com/mailru/easyjson v0.0.0-20190312143242-1de009706dbe // indirect
 	github.com/mattn/go-isatty v0.0.7 // indirect
 	github.com/sirupsen/logrus v1.4.0
