@@ -31,7 +31,7 @@ This microservice provides a Server Sent Event endpoint to get a live stream of 
 * Web page with information about the microservice and endpoints
 
 ## TODO
-* Create unit and functional tests (see https://github.com/h2non/gock)
+* Create unit and functional tests (see https://github.com/h2non/gock, http://onsi.github.io/ginkgo/, http://onsi.github.io/gomega/)
 * Implement persistence of client requests
 * Add request statistics of requests and gathered data
 
