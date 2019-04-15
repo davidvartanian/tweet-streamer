@@ -21,4 +21,26 @@ func main() {
 	if err != nil {
 		log.Errorf("Error trying to run server: %v", err)
 	}
+	// TODO continue here, I need to kill gin whenever I want
+	//srv := &http.Server{
+	//	Addr:    ":" + os.Getenv("SERVICE_PORT"),
+	//	Handler: engine,
+	//}
+	//go func() {
+	//	// service connections
+	//	if err := srv.ListenAndServe(); err != nil {
+	//		log.Printf("listen: %s\n", err)
+	//	}
+	//}()
+	//quit := make(chan os.Signal)
+	//signal.Notify(quit, os.Interrupt)
+	//<-quit
+	//log.Println("Shutdown Server ...")
+	//
+	//ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	//defer cancel()
+	//if err := srv.Shutdown(ctx); err != nil {
+	//	log.Fatal("Server Shutdown:", err)
+	//}
+
 }

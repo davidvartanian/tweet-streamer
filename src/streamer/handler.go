@@ -1,4 +1,4 @@
-package handler
+package streamer
 
 import (
 	"github.com/dghubble/go-twitter/twitter"
@@ -7,6 +7,16 @@ import (
 	"io"
 	"main/src/streamer/service"
 )
+
+type Handler struct{}
+
+func (h *Handler) SetupRoute(engine *gin.Engine) {
+	group := engine.Group("/tweets")
+	{
+		group.GET("/stream", h.handleTweetStream)
+		group.GET("/sample", h.handleTweetSample)
+	}
+}
 
 // Handle tweets stream request
 // @Summary Get a stream of Server Sent Events containing tweets given a search query string
@@ -18,7 +28,7 @@ import (
 // @Success 200 "There is no response body for this endpoint. Event stream data: {\"tweet\": \"string\"}"
 // @Failure 502 "Reached the maximum amount of simultaneous connections"
 // @Tags tweets
-func HandleTweetStream(ctx *gin.Context) {
+func (h *Handler) handleTweetStream(ctx *gin.Context) {
 	var query Query
 	err := ctx.BindQuery(&query)
 	if err != nil {
@@ -39,4 +49,30 @@ func HandleTweetStream(ctx *gin.Context) {
 		}
 		return false
 	})
+}
+
+// Handle tweets sample requests
+// @Summary Get a stream of Server Sent Events containing tweets given a search query string
+// @Router /tweets/sample [get]
+// @Param q query string false "name search by q"
+// @Produce json
+// @Success 200 {array} handler.ResponseTweet
+// @Failure 502 "Reached the maximum amount of simultaneous connections"
+// @Tags tweets
+func (h *Handler) handleTweetSample(ctx *gin.Context) {
+	var query Query
+	err := ctx.BindQuery(&query)
+	if err != nil {
+		logrus.Errorf("Error binding querystring data: %v", err)
+	}
+	streamer := service.CreateTweeterStreamer()
+	sample, err := streamer.GetTweetSample(query.Q)
+	if err != nil {
+		logrus.Errorf("Error trying to get tweets sample: %v", err)
+	}
+	var tweets []ResponseTweet
+	for _, t := range sample {
+		tweets = append(tweets, ResponseTweet{Tweet: t.Text})
+	}
+	ctx.JSON(200, tweets)
 }

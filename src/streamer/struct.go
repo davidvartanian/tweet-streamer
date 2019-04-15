@@ -1,4 +1,4 @@
-package handler
+package streamer
 
 type Query struct {
 	Q string `form:"q"`

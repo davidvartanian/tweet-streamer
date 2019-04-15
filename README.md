@@ -12,6 +12,9 @@ This microservice provides a Server Sent Event endpoint to get a live stream of 
 * Follow logs: `docker-compose logs -f`
 * Simultaneous connections to `/tweets/*` endpoints will be rejected according to MAX_CONCURRENCY environment variable (`/stats` won't be affected)
 
+## Testing
+* `ginkgo -r`
+
 ## Endpoints
 ### Tweets Stream
 * GET /tweets/stream?q=some+keyword
@@ -31,9 +34,9 @@ This microservice provides a Server Sent Event endpoint to get a live stream of 
 * Web page with information about the microservice and endpoints
 
 ## TODO
-* Create unit and functional tests (see https://github.com/h2non/gock, http://onsi.github.io/ginkgo/, http://onsi.github.io/gomega/)
 * Implement persistence of client requests
-* Add request statistics of requests and gathered data
+* Add statistics of requests and gathered data
 
 ## See
 * https://github.com/dghubble/go-twitter
+* http://onsi.github.io/ginkgo/

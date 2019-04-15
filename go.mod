@@ -18,13 +18,16 @@ require (
 	github.com/joho/godotenv v1.3.0
 	github.com/mailru/easyjson v0.0.0-20190312143242-1de009706dbe // indirect
 	github.com/mattn/go-isatty v0.0.7 // indirect
+	github.com/onsi/ginkgo v1.8.0
+	github.com/onsi/gomega v1.5.0
 	github.com/sirupsen/logrus v1.4.0
 	github.com/swaggo/gin-swagger v1.1.0
 	github.com/swaggo/swag v1.4.1
 	github.com/ugorji/go/codec v0.0.0-20190316192920-e2bddce071ad // indirect
-	golang.org/x/crypto v0.0.0-20190313024323-a1f597ede03a // indirect
-	golang.org/x/net v0.0.0-20190313220215-9f648a60d977 // indirect
-	golang.org/x/sys v0.0.0-20190316082340-a2f829d7f35f // indirect
+	golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c // indirect
+	golang.org/x/net v0.0.0-20190327025741-74e053c68e29 // indirect
+	golang.org/x/sync v0.0.0-20190227155943-e225da77a7e6 // indirect
+	golang.org/x/sys v0.0.0-20190322080309-f49334f85ddc // indirect
 	golang.org/x/tools v0.0.0-20190315214010-f0bfdbff1f9c // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 )
